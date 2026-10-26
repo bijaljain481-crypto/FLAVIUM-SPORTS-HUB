@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flavium Sports Portal 2027</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-strip"><span>SVKM’s NMIMS · Shirpur Campus</span><span class="demo-label">DEMO DATA · 2027</span></header>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-mark"><span>F</span><small>SPORTS</small></div>
+      <nav aria-label="Main navigation">
+        <button class="nav-link active" data-view="overview"><span>⌂</span><b>Overview</b></button>
+        <button class="nav-link" data-view="fixtures"><span>▦</span><b>Fixtures</b></button>
+        <button class="nav-link" data-view="standings"><span>≡</span><b>Standings</b></button>
+        <button class="nav-link" data-view="sports"><span>⚑</span><b>Sports & teams</b></button>
+        <button class="nav-link" data-view="about"><span>ⓘ</span><b>About</b></button>
+      </nav>
+      <div class="side-foot">FLAVIUM 2027<br/><small>Play with pride.</small></div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <button class="menu-button" id="menuButton" aria-label="Toggle navigation">☰</button>
+        <div class="wordmark"><div class="wordmark-icon">N</div><div><strong>NMIMS</strong><small>SPORTS PORTAL</small></div></div>
+        <div class="header-right"><span class="header-season">SEASON 2027</span><span class="avatar">SP</span></div>
+      </header>
+
+      <div class="page-wrap">
+        <section class="hero">
+          <div class="hero-copy"><p class="eyebrow">CAMPUS SPORTS · SHIRPUR</p><h1>Every game.<br/><em>One campus.</em></h1><p>Fixtures, results and standings for SPTM and MPSTME — all in one place.</p><div class="hero-actions"><button class="button button-light" data-jump="fixtures">Explore fixtures <span>↗</span></button><button class="button button-outline" data-jump="standings">View standings</button></div></div>
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="ball">✦</div><span class="art-word art-top">PLAY</span><span class="art-word art-bottom">TOGETHER</span><div class="hero-stamp">F<br/><small>’27</small></div></div>
+        </section>
+
+        <div class="demo-notice"><strong>Sample portal:</strong> fixture dates, scores and live states are illustrative demo data, not official event updates.</div>
+
+        <section class="section-block" id="overviewSection">
+          <div class="section-heading"><div><p class="eyebrow">AT A GLANCE</p><h2>Sports dashboard</h2></div><span class="season-pill">FLAVIUM · 2027</span></div>
+          <div class="stat-grid" id="statsGrid"></div>
+          <div class="overview-grid">
+            <article class="panel"><div class="panel-title"><div><p class="eyebrow">UP NEXT</p><h3>Upcoming fixtures</h3></div><button class="text-button" data-jump="fixtures">All fixtures →</button></div><div id="upcomingList" class="compact-fixtures"></div></article>
+            <article class="panel"><div class="panel-title"><div><p class="eyebrow">CAMPUS DIVISIONS</p><h3>Choose your school</h3></div></div><div class="school-choice"><button class="school-tile" data-school="SPTM"><span class="tile-symbol">P</span><span><strong>SPTM</strong><small>School of Pharmacy & Technology Management</small></span><span class="tile-arrow">↗</span></button><button class="school-tile" data-school="MPSTME"><span class="tile-symbol">E</span><span><strong>MPSTME</strong><small>Mukesh Patel School of Technology Management & Engineering</small></span><span class="tile-arrow">↗</span></button></div></article>
+          </div>
+        </section>
+
+        <section class="section-block" id="fixturesSection">
+          <div class="section-heading"><div><p class="eyebrow">MATCH CENTRE</p><h2>Fixtures & results</h2><p class="section-desc">Search matches or filter by sport, school, category and status.</p></div><span id="fixtureCount" class="count-pill">0 matches</span></div>
+          <div class="filters panel">
+            <label>Search<input id="searchFilter" type="search" placeholder="Team, match ID, venue…" /></label>
+            <label>Sport<select id="sportFilter"><option value="all">All sports</option></select></label>
+            <label>School<select id="schoolFilter"><option value="all">All schools</option><option value="SPTM">SPTM</option><option value="MPSTME">MPSTME</option></select></label>
+            <label>Category<select id="genderFilter"><option value="all">Boys & girls</option><option value="boys">Boys</option><option value="girls">Girls</option></select></label>
+            <label>Status<select id="statusFilter"><option value="all">All statuses</option><option value="scheduled">Scheduled</option><option value="in-progress">Live</option><option value="completed">Completed</option><option value="postponed">Postponed</option><option value="cancelled">Cancelled</option></select></label>
+            <button class="button button-dark" id="resetFilters">Reset filters</button>
+          </div>
+          <div class="filter-meta"><span id="filterSummary">Showing all fixtures</span><div class="view-toggle"><button class="view-btn active" data-layout="cards">Cards</button><button class="view-btn" data-layout="table">Table</button></div></div>
+          <div id="fixturesContainer"></div>
+        </section>
+
+        <section class="section-block" id="standingsSection">
+          <div class="section-heading"><div><p class="eyebrow">LEAGUE TABLES</p><h2>Standings</h2><p class="section-desc">Sample standings are calculated from completed league fixtures.</p></div></div>
+          <div class="standing-controls"><label>Sport<select id="standingSport"></select></label><label>School<select id="standingSchool"><option value="SPTM">SPTM</option><option value="MPSTME">MPSTME</option></select></label><label>Category<select id="standingGender"><option value="boys">Boys</option><option value="girls">Girls</option></select></label></div>
+          <div id="standingsContainer" class="panel table-panel"></div>
+        </section>
+
+        <section class="section-block" id="sportsSection">
+          <div class="section-heading"><div><p class="eyebrow">ON THE FIELD & BEYOND</p><h2>Sports & team categories</h2><p class="section-desc">The teams reflect the school, programme, department, year and category structure.</p></div></div>
+          <div id="sportsGrid" class="sports-grid"></div>
+        </section>
+
+        <section class="section-block" id="aboutSection">
+          <div class="section-heading"><div><p class="eyebrow">PORTAL INFORMATION</p><h2>About this portal</h2></div></div>
+          <div class="panel about-panel"><h3>Built for the campus community.</h3><p>This front-end demo brings fixtures, results, team categories and sample league standings together. It uses local JavaScript data and does not require a server or database.</p><div class="about-columns"><div><strong>SPTM</strong><p>B.Pharm — Years 1–3<br/>MBA Pharma — Years 1–4</p></div><div><strong>MPSTME</strong><p>B.Tech — AIML, CE, CS, CSDS and IT (year availability varies).<br/>MBA Tech — CE, Years 1–3.</p></div></div><p class="muted">Before publishing, replace the sample fixtures and scores with verified event information. The demo does not provide real-time updates or persist changes to a database.</p></div>
+        </section>
+        <footer>FLAVIUM SPORTS PORTAL · NMIMS SHIRPUR <span>Made for campus sport.</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop" hidden><section class="match-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close details">×</button><div id="modalContent"></div></section></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
